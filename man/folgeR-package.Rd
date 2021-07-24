@@ -6,7 +6,7 @@
 \alias{folgeR-package}
 \title{folgeR: Client for the Folger Shakespeare Library API}
 \description{
-Client for the Folger Shakespeare Library API
+Client for the Folger Shakespeare Library API.
 }
 \seealso{
 Useful links:
