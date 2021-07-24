@@ -4,10 +4,9 @@
 \name{folgeR-package}
 \alias{folgeR}
 \alias{folgeR-package}
-\title{folgeR: What the Package Does (Title Case)}
+\title{folgeR: Client for the Folger Shakespeare Library API}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Client for the Folger Shakespeare Library API
 }
 \seealso{
 Useful links:
@@ -15,6 +14,10 @@ Useful links:
   \item \url{https://github.com/vgherard/folgeR}
   \item Report bugs at \url{https://github.com/vgherard/folgeR/issues}
 }
+
+}
+\author{
+\strong{Maintainer}: Valerio Gherardi \email{vgherard@sissa.it} (\href{https://orcid.org/0000-0002-8215-3013}{ORCID})
 
 }
 \keyword{internal}
