@@ -13,3 +13,6 @@ RoxygenNote: 7.1.1
 Imports: rvest
 URL: https://github.com/vgherard/folgeR
 BugReports: https://github.com/vgherard/folgeR/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
