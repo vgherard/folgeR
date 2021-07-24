@@ -11,7 +11,7 @@ folg_text(play)
 the strings returned by \code{\link{folg_plays}()}.}
 }
 \value{
-a character vector.
+a length one character vector.
 }
 \description{
 Returns only the spoken text in the selected play.
