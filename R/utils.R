@@ -10,4 +10,8 @@
 #'
 #' @noRd
 folg_url_req <- function(play, fun, ...)
-        paste0("https://www.folgerdigitaltexts.org/", play, "/", fun, "/")
+        paste0("https://www.folgerdigitaltexts.org/",
+               play, "/",
+               fun, "/"
+               # ...
+               )
