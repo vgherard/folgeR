@@ -25,9 +25,12 @@
 #' @return a character vector. URL request to the Folger API.
 #'
 #' @noRd
-folg_url_req <- function(play, fun, ...)
+folg_url_req <- function(play, fun, ...) {
+        validate_play_code(play)
         paste0("https://www.folgerdigitaltexts.org/",
                play, "/",
                fun, "/"
                # ...
-               )
+        )
+}
+
