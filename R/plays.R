@@ -66,3 +66,35 @@ folg_plays <- function()
                 "Two Noble Kinsmen" = "TNK",
                 "The Winter's Tale" = "WT"
         )
+
+#' @title Validate Play Code
+#'
+#' @author Valerio Gherardi
+#' @md
+#'
+#' @description Throws an exception if the input is not a valid play code.
+#'
+#' @return NULL, invisibly.
+#' @noRd
+validate_play_code <- function(play) {
+        p <- is.character(play) && length(play) == 1 && !is.na(play)
+        if (!p) {
+                msg <- c(
+                        h = "Invalid play code.",
+                        x = "'play' must be a length one character (not NA)."
+                        )
+                rlang::abort(msg, class = "folg_domain_error")
+        }
+
+        q <- play %in% folg_plays()
+        if (!q) {
+                msg <- c(
+                        h = "Unknown play code.",
+                        x = paste(play, "is not a recognized play code."),
+                        i = "Use folg_plays() to list all available plays."
+                )
+                rlang::abort(msg, class = "folg_unk_play_error")
+        }
+
+        return(invisible(NULL))
+}
