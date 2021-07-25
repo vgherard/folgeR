@@ -76,7 +76,7 @@ folg_plays <- function()
 #'
 #' @return NULL, invisibly.
 #' @noRd
-validate_play_code <- function(play) {
+validate_play <- function(play) {
         p <- is.character(play) && length(play) == 1 && !is.na(play)
         if (!p) {
                 msg <- c(
