@@ -31,3 +31,14 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("vgherard/folgeR")
 ```
+
+## Example
+
+```{r}
+library(folgeR)
+
+head(folg_plays())
+aww <- folg_text("AWW")
+strtrim(aww, 499)
+```
+
