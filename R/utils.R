@@ -14,23 +14,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title Construct Folger URL request
+#' @title Construct Folger HTTP request
 #'
-#' @description Helper for constructing URL requests to the Folger API.
+#' @description Helper for constructing HTTP requests to the Folger API.
 #'
 #' @param play A length one character. Code of the requested play.
-#' @param fun API function.
+#' @param fun A length one character. API function to apply to \code{play}.
 #' @param ... not used.
 #'
-#' @return a character vector. URL request to the Folger API.
+#' @return a list, containing the argument of the httr::GET() call.
 #'
 #' @noRd
-folg_url_req <- function(play, fun, ...) {
-        validate_play_code(play)
-        paste0("https://www.folgerdigitaltexts.org/",
-               play, "/",
-               fun, "/"
-               # ...
-        )
+folg_http_req <- function(play, fun, ...) {
+        validate_play(play)
+        url <- "https://www.folgerdigitaltexts.org/"
+        path <- paste0(play, "/", fun, "/")
+        list(url = url, path = path)
 }
 
