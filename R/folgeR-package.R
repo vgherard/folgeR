@@ -1,4 +1,5 @@
 #' @keywords internal
+#' @import httr
 "_PACKAGE"
 
 # The following block is used by usethis to automatically manage
