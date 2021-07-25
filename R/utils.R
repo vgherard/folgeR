@@ -14,21 +14,39 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#' @title Construct Folger HTTP request
+#' @title Folger API path
 #'
-#' @description Helper for constructing HTTP requests to the Folger API.
+#' @description Construct the path of a Folger API request.
 #'
-#' @param play A length one character. Code of the requested play.
+#' @param play A length one character. Code of the required play.
 #' @param fun A length one character. API function to apply to \code{play}.
-#' @param ... not used.
+#' @param ... Possible additional parameters required by \code{fun}.
+#'
+#' @return a string, endpoint of Folger API request.
+#'
+#' @noRd
+folg_api_endpoint <- function(play, fun, ...)
+        paste0(play, "/", fun, "/", ...)
+
+#' @title Folger API request
+#'
+#' @description Helper for making requests to the Folger API.
+#'
+#' @param play A length one character. Code of the required play.
+#' @param fun A length one character. API function to apply to \code{play}.
+#' @param ... Possible additional parameters required by \code{fun}.
 #'
 #' @return a list, containing the argument of the httr::GET() call.
 #'
 #' @noRd
-folg_http_req <- function(play, fun, ...) {
+folg_api_req <- function(play, fun, ...) {
         validate_play(play)
-        url <- "https://www.folgerdigitaltexts.org/"
-        path <- paste0(play, "/", fun, "/")
-        list(url = url, path = path)
-}
 
+        url <- httr::modify_url(
+                url = "https://www.folgerdigitaltexts.org/",
+                path = folg_api_endpoint(play, fun, ...)
+                )
+        ua <- httr::user_agent("http://github.com/vgherard/folgeR")
+
+        httr::GET(url, ua)
+}

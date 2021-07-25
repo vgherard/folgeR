@@ -1,10 +1,12 @@
-test_that("folg_http_req() returns a list", {
-        expect_vector(folg_http_req("AWW", "text"), list())
+test_that("folg_api_req() returns a response", {
+        expect_s3_class(
+                folg_api_req("AWW", "text"), "response", exact = T
+                )
 })
 
-test_that("folg_http_req() calls validate_play()", {
+test_that("folg_api_req() calls validate_play()", {
         expect_error(
-                folg_http_req(c("AWW", "Ant"), "text"),
+                folg_api_req(c("AWW", "Ant"), "text"),
                 class = "folg_domain_error"
                 )
 })
