@@ -27,6 +27,7 @@
 #' @examples folg_text("AWW")
 #' @export
 folg_text <- function(play) {
-        url <- folg_url_req(play, "text")
-        rvest::html_text2(rvest::read_html(url))
+        response <- do.call(httr::GET, args = folg_http_req(play, "text"))
+        res <- httr::content(response, as = "text")
+        res
 }
