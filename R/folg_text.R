@@ -29,5 +29,12 @@
 folg_text <- function(play) {
         response <- stop_for_status(folg_api_req(play = play, fun = "text"))
 
-        xml2::xml_text(content(response))
+        txt <- content(response, as = "text")
+
+        txt <- strip_html_tags(txt)
+        txt <- gsub("\n", " ", txt)
+        txt <- remove_extra_space(txt)
+        txt <- trim_lr_space(txt)
+
+        txt
 }
