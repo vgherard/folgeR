@@ -27,7 +27,7 @@
 #' @examples folg_text("AWW")
 #' @export
 folg_text <- function(play) {
-        response <- do.call(httr::GET, args = folg_http_req(play, "text"))
-        res <- httr::content(response, as = "text")
-        res
+        response <- stop_for_status(folg_api_req(play = play, fun = "text"))
+
+        xml2::xml_text(content(response))
 }
